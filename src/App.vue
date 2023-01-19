@@ -218,18 +218,6 @@ export default {
         this[key] = windowData[key]
       }
     })
-  // if (windowData.filter){
-  //     this.filter = windowData.filter
-  //   }
-    //  if(windowData.page <= ((JSON.parse(tickersData)?.length)/this.endIndex).toFixed()){
-    //   this.page = windowData.page
-    // }
-    // else {
-    //   history.pushState(null, document.title, `${window.location.pathname}?filter=${this.filter}&page=${this.page}`)
-    // }
-    // if(windowData.page){
-    //   this.page = windowData.page
-    // }
     const tickersData = localStorage.getItem('crypto-list')
 
     if (tickersData){
@@ -238,7 +226,6 @@ export default {
         subscribeTOTicker(ticker.name, (newPrice) => this.updateTicker(ticker.name, newPrice))
       })
     }
-  //setInterval( this.updateTickers, 5000)
   },
   mounted() {
     window.addEventListener('resize', this.calculateMaxGraphElements)
@@ -344,23 +331,6 @@ export default {
     tickers(){
       localStorage.setItem('crypto-list', JSON.stringify(this.tickers))
     },
-
-    // tickers: {
-    //   handler(val) {
-    //     //console.log(oldVal)
-    //     for (const valKey in val) {
-    //      if (val[valKey].price === undefined){
-    //        console.log('newval undefinded '+ val[valKey].name)
-    //        console.log(this.tickers.map(t =>{
-    //          console.log(t.name, val[valKey].name);
-    //        }))
-    //      }
-    //     }
-    //     localStorage.setItem('crypto-list', JSON.stringify(this.tickers))
-    //   },
-    //   deep: true
-    // },
-
 
     filter(){
       this.page = 1
